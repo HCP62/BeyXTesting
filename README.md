@@ -1,0 +1,2 @@
+# beybladeTestBotDiscord
+Beyblade Testing Bot
