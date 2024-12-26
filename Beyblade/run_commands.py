@@ -1,5 +1,6 @@
 import match_runner
 
+
 def command_set():
     print("Welcome to BeyX Tester")
     print("Type '!start' to start a test session")

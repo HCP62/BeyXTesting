@@ -11,8 +11,6 @@ def initialize_beyblades():
     bey1_ratchet = input("Your ratchet: ")
     bey1_bit = input("Your bit: ")
 
-    print("\n")
-
     #initialization of the dummy beyblade
     bey2_blade = input("Opponent's blade: ")
     bey2_ratchet = input("Opponent's ratchet: ")
