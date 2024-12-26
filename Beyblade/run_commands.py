@@ -13,7 +13,7 @@ def help():
     s = '''
     !start = start a test session
     !help = show all the commands
-    !win% = show win percentage
+    !wr = show win percentage
     !type = get all the options for a type of finish
     !type spin = get the percentage to score a spin finish
     !type over = get the percentage to score an over finish
@@ -24,9 +24,14 @@ def help():
 
 def choose_option():
     input = input("Type the command: ")
+    matches = []
+    beys = []
     if input == "!start":
-        match_runner.start_test()
+        beys = match_runner.initialize_beyblades()
+        matches = match_runner.start_test(beys[0], beys[1])
     elif input == "!help":
         help()
+    elif input == "!wr":
+        match_runner.win_command(beys[0], beys[1], matches)
     elif input == "!q":
         quit()

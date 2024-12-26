@@ -3,9 +3,9 @@ from match import Match
 
 
 '''
-Function defining the start of the test session
+Function initializing the beyblades
 '''
-def start_test():
+def initialize_beyblades():
     # initialization of the tested beyblade
     bey1_blade = input("Your blade: ")
     bey1_ratchet = input("Your ratchet: ")
@@ -33,6 +33,12 @@ def start_test():
     bey1 = Beyblade(bey1_blade, bey1_ratchet, bey1_bit)
     bey2 = Beyblade(bey2_blade, bey2_ratchet, bey2_bit)
 
+    return [bey1, bey2]
+
+'''
+Function defining the start of the test session
+'''
+def start_test(bey1, bey2):
     matches = [] #list of matches containing unique match data
 
     # total battles should be near 30 to get the win rate to be accurate
@@ -46,6 +52,10 @@ def start_test():
         matches.append(match) #add match to the list after match is completed
         total_battles += match.get_total_battles()
     
+    return matches
+    
+
+def win_command(bey1, bey2, matches):
     win_r = calculate_win_rate(bey1, matches)
     print(f"{bey1.__str__()} win rate against {bey2.__str__()}: {win_r}%")
 
