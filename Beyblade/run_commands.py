@@ -1,7 +1,4 @@
 import match_runner
-from beyblade import Beyblade
-from match import Match
-from victory import Victory
 
 def command_set():
     print("Welcome to BeyX Tester")
