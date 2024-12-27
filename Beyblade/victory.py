@@ -5,10 +5,6 @@ class Victory:
     def __init__(self, bey, wt):
         self._bey = bey
         self._type = wt
-        self._spins = False
-        self._bursts = False
-        self._over = False
-        self._x = False
         self._points = 0
 
     def get_bey(self):
@@ -42,16 +38,12 @@ class Victory:
         if (wt == "spin"):
             self._bey.add_points(1)
             self._points = 1
-            self._spins = True
         elif (wt == "burst"):
             self._bey.add_points(2)
             self._points = 2
-            self._bursts = True
         elif (wt == "over"):
             self._bey.add_points(2)
             self._points = 2
-            self._over = True
         elif (wt == "x" or wt == "X" or wt == "extreme"):
             self._bey.add_points(3)
             self._points = 3
-            self._x = True

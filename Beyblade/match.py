@@ -68,7 +68,6 @@ class Match:
             self._bey1_points += points
         elif bey == self._bey2:
             self._bey2_points += points
-        
         bey.add_points(points) # add points to the beyblade object
 
     '''

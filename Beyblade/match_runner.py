@@ -65,6 +65,10 @@ def calculate_win_rate(bey, matches):
     battles = sum(match.get_total_battles() for match in matches)
     return float(wins/battles) * 100
 
+def get_win_by_type(matches, bey, wt):
+    wins = bey.get_win_by_type(wt)
+    total_wins = sum(match.get_total_battles() for match in matches)
+    return float(wins/total_wins) * 100
 
 # THE FUNCTIONS COMMENTED BELOW DO NOT WORK
 
