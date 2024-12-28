@@ -47,18 +47,21 @@ def get_type_options():
     !type over = get the percentage to score an over finish
     !type burst = get the percentage to score a burst finish
     !type x = get the percentage to score an extreme finish
+    !back = return to main menu
     '''
     print("Type options:", s)
 
-def choose_type(match, bey):
-    command = input("choose the type of finish: ")
-    if command == "!type spin":
-        print(f"{bey.__str__()} win rate for spin finishes: {match_runner.get_win_by_type(match, bey, 'spin')}%")
-    elif command == "!type over": # not printing
-        print(f"{bey.__str__()} win rate for over finishes: {match_runner.get_win_by_type(match, bey, 'over')}%")
-    elif command == "!type burst": # not printing
-        print(f"{bey.__str__()} win rate for burst finishes: {match_runner.get_win_by_type(match, bey, 'burst')}%")
-    elif command == "!type x": # not printing
-        print(f"{bey.__str__()} win rate for extreme finishes: {match_runner.get_win_by_type(match, bey, 'x')}%")
+def choose_type(matches, bey):
+    command = ""
+    while command != "!back":
+        command = input("choose the type of finish (!back to return): ")
+        if command == "!type spin":
+            print(f"{bey.__str__()} win rate for spin finishes: {match_runner.get_win_by_type(matches, bey, 'spin')}%")
+        elif command == "!type over":
+            print(f"{bey.__str__()} win rate for over finishes: {match_runner.get_win_by_type(matches, bey, 'over')}%")
+        elif command == "!type burst":
+            print(f"{bey.__str__()} win rate for burst finishes: {match_runner.get_win_by_type(matches, bey, 'burst')}%")
+        elif command == "!type x":
+            print(f"{bey.__str__()} win rate for extreme finishes: {match_runner.get_win_by_type(matches, bey, 'x')}%")
 
 choose_option()
