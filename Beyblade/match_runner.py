@@ -38,24 +38,25 @@ Function defining the start of the test session
 '''
 def start_test(bey1, bey2):
     matches = [] #list of matches containing unique match data
+    battles = []  # Store battle messages
 
     # total battles should be near 30 to get the win rate to be accurate
     # reference: magic number 30
     total_battles = 0
     for i in range(10):
-        print(total_battles)
-        print(f"\nMatch {i + 1}")
+        battles.append(f"Total battles so far: {total_battles}")
+        battles.append(f"\nMatch {i + 1}")
         match = Match(bey1, bey2)
         match.battle()
         matches.append(match) #add match to the list after match is completed
         total_battles += match.get_total_battles()
     
-    return matches
+    return matches, "\n".join(battles)
     
 
 def win_command(bey1, bey2, matches):
     win_r = calculate_win_rate(bey1, matches)
-    print(f"{bey1.__str__()} win rate against {bey2.__str__()}: {win_r}%")
+    return f"{bey1.__str__()} win rate against {bey2.__str__()}: {win_r}%"
 
 '''
 Function to calculate the win rate of the tested beyblade

@@ -1,0 +1,16 @@
+.env
+*.env
+
+token.txt
+*.token
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+env/
+ENV/
+
+.vscode/
+.idea/

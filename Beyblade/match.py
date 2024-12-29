@@ -12,6 +12,7 @@ class Match:
         self._bey1_points = 0
         self._bey2_points = 0
         self._winner = None
+        self._battles = []
 
     '''
     Function to get the total number of battles in the match
@@ -75,14 +76,23 @@ class Match:
     '''
     def battle(self):
         while self._winner is None:
-            print(f"Battle {self._total_battles + 1}")
+            battle_msg = f"Battle {self._total_battles + 1}"
+            self._battle_log.append(battle_msg)
             self._total_battles += 1
+            
             choice = input("Type 1 for you, 2 for your opponent\n")
             wt = input("What kind of victory? ")
+            
             if (choice == "1"): 
                 self.scoring(self._bey1, wt)
             elif (choice == "2"):
                 self.scoring(self._bey2, wt)
             self.winner()
-        print(f"{self._winner} wins the battle\n\n")
+            
+        winner_msg = f"{self._winner} wins the battle\n"
+        self._battle_log.append(winner_msg)
         return self._winner
+
+    def get_battle_log(self):
+        """Return the complete battle log"""
+        return "\n".join(self._battle_log)

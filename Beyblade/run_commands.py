@@ -32,9 +32,12 @@ def choose_option():
             help()
         elif command == "!wr":
             match_runner.win_command(beys[0], beys[1], matches)
-        elif command == "!type":
-            get_type_options()
-            choose_type(matches, beys[0])
+        elif command.startswith("!type "):
+            type_finish = command.split(" ")[1]
+            if type_finish in ["spin", "over", "burst", "x"]:
+                print(f"{beys[0].__str__()} win rate for {type_finish} finishes: {match_runner.get_win_by_type(matches, beys[0], type_finish)}%")
+            else:
+                get_type_options()
         elif command == "!q":
             quit()
 
@@ -47,18 +50,3 @@ def get_type_options():
     !back = return to main menu
     '''
     print("Type options:", s)
-
-def choose_type(matches, bey):
-    command = ""
-    while command != "!back":
-        command = input("choose the type of finish (!back to return): ")
-        if command == "!type spin":
-            print(f"{bey.__str__()} win rate for spin finishes: {match_runner.get_win_by_type(matches, bey, 'spin')}%")
-        elif command == "!type over":
-            print(f"{bey.__str__()} win rate for over finishes: {match_runner.get_win_by_type(matches, bey, 'over')}%")
-        elif command == "!type burst":
-            print(f"{bey.__str__()} win rate for burst finishes: {match_runner.get_win_by_type(matches, bey, 'burst')}%")
-        elif command == "!type x":
-            print(f"{bey.__str__()} win rate for extreme finishes: {match_runner.get_win_by_type(matches, bey, 'x')}%")
-
-choose_option()
