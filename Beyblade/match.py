@@ -77,7 +77,7 @@ class Match:
     def battle(self):
         while self._winner is None:
             battle_msg = f"Battle {self._total_battles + 1}"
-            self._battle_log.append(battle_msg)
+            self._battles.append(battle_msg)
             self._total_battles += 1
             
             choice = input("Type 1 for you, 2 for your opponent\n")
@@ -89,10 +89,9 @@ class Match:
                 self.scoring(self._bey2, wt)
             self.winner()
             
-        winner_msg = f"{self._winner} wins the battle\n"
-        self._battle_log.append(winner_msg)
+        win_message = f"{self._winner} wins the battle\n"
+        self._battles.append(win_message)
         return self._winner
 
     def get_battle_log(self):
-        """Return the complete battle log"""
-        return "\n".join(self._battle_log)
+        return "\n".join(self._battles)
